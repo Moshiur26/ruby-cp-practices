@@ -32,5 +32,5 @@ def heap_sort(arr, n)
 end
 
 arr = [4, 2, 9, 3, 7]
-heap_sort(arr, 5)
+heap_sort(arr, arr.length)
 p arr
