@@ -23,17 +23,11 @@ def heapify(arr, n, i)
 end
 
 def heap_sort(arr, n)
-  i = n/2 -1
-  while i >= 0
-    heapify(arr, n, i)
-    i -= 1
-  end
+  (n / 2 - 1).downto(0).each { |i| heapify(arr, n, i) }
 
-  i = n - 1
-  while i >= 0
+  (n - 1).downto(0).each do |i|
     arr.swap!(0, i)
     heapify(arr, i, 0)
-    i -= 1
   end
 end
 
