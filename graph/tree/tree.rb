@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tree node structure
 class Node
   attr_accessor :value, :left, :right
 
