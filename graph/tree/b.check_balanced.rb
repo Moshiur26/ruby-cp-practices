@@ -17,17 +17,23 @@ class Node
   end
 end
 
-def get_height(node)
+def check_height(node)
   return -1 if node.nil?
 
-  [get_height(node.left), get_height(node.right)].max + 1
+  left_height = check_height(node.left)
+  return -2 if left_height == -2
+
+  right_height = check_height(node.right)
+  return -2 if right_height == -2
+
+  height_diff = (left_height - right_height).abs
+  return -2 if height_diff > 1
+
+  [left_height, right_height].max + 1
 end
 
 def balanced?(node)
-  return true if node.nil?
-  return false if (get_height(node.left) - get_height(node.right)).abs > 1
-
-  balanced?(node.left) && balanced?(node.right)
+  check_height(node) != -2
 end
 
 node = Node.new(8)
