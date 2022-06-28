@@ -31,6 +31,9 @@ def check_bst(node)
   arr = []
   copy_bst(node, arr)
   p arr
+  # NOTE: This <=> symbol is called “the spaceship operator” & it’s a method you can implement in your class.
+  # It should return 1 (greater than), 0 (equal) or -1 (less than).
+  #
   # arr.each_cons(2).all? { |a, b| (a <=> b) <= 0 } # check sorted or not (here <=> operator use for instance)
   arr.each_cons(2).all? { |a, b| a <= b } # check sorted or not
 end
