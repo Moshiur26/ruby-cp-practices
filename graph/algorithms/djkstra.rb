@@ -1,19 +1,18 @@
 require 'priority_queue'
 
 def dijkstra(graph, start)
-  # Set initial distances to infinity for all nodes
   distances = {}
-  graph.keys.each { |node| distances[node] = Float::INFINITY }
-  distances[start] = 0
-
-  # Initialize priority queue with start node and its distance
   pq = PriorityQueue.new
+
+  graph.keys.each do |node|
+    distances[node] = Float::INFINITY
+  end
+
+  distances[start] = 0
   pq[start] = 0
 
-  while pq.size > 0
+  while pq.any?
     current_node, current_distance = pq.delete_min
-
-    next if current_distance > distances[current_node]
 
     graph[current_node].each do |neighbor, weight|
       total_distance = distances[current_node] + weight
